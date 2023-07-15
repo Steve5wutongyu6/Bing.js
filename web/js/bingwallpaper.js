@@ -1,19 +1,23 @@
-    // 替换为您的 OSS 地址
-    const ossBaseUrl = 'https://example.oss-cn-hongkong.aliyuncs.com/bingwallpaper/';
+// 替换为您的 OSS 地址
+const ossBaseUrl = 'https://bingwallpaper22222222.oss-cn-hongkong.aliyuncs.com/bingwallpaper/';
 
-    // 获取当前日期
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-    const day = String(currentDate.getDate()).padStart(2, '0');
+// 获取 URL 参数
+const urlParams = new URLSearchParams(window.location.search);
+const dateParam = urlParams.get('date');
 
-    // 构建图片 URL
-    const imageUrl = ossBaseUrl + year + month + day + '.jpg';
+// 获取当前日期
+const currentDate = dateParam ? new Date(dateParam) : new Date();
+const year = currentDate.getFullYear();
+const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+const day = String(currentDate.getDate()).padStart(2, '0');
 
-    // 创建图片元素
-    const imageElement = document.createElement('img');
-    imageElement.src = imageUrl;
+// 构建图片 URL
+const imageUrl = ossBaseUrl + year + month + day + '.jpg';
 
-    // 添加图片到容器
-    const wallpaperContainer = document.getElementById('wallpaperContainer');
-    wallpaperContainer.appendChild(imageElement);
+// 创建图片元素
+const imageElement = document.createElement('img');
+imageElement.src = imageUrl;
+
+// 添加图片到容器
+const wallpaperContainer = document.getElementById('wallpaperContainer');
+wallpaperContainer.appendChild(imageElement);
