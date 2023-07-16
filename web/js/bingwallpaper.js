@@ -1,5 +1,5 @@
 // 替换为您的 OSS 地址
-const ossBaseUrl = 'https://bingwallpaper22222222.oss-cn-hongkong.aliyuncs.com/bingwallpaper/';
+const ossBaseUrl = 'https://example.oss-cn-hongkong.aliyuncs.com/bingwallpaper/';
 
 // 获取 URL 参数
 const urlParams = new URLSearchParams(window.location.search);
