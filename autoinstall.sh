@@ -10,7 +10,8 @@ SCRIPT_URL="https://raw.githubusercontent.com/Steve5wutongyu6/DailyWallpaper/mai
 QL_PATH="/ql/scripts"
 
 # 安装脚本命令
-INSTALL_COMMAND="$QL_PATH/ script update $SCRIPT_NAME $SCRIPT_URL"
+INSTALL_COMMAND="ql script update $SCRIPT_NAME $SCRIPT_URL"
+
 
 # 执行安装脚本命令
 $INSTALL_COMMAND
