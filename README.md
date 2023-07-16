@@ -9,7 +9,7 @@
 1. 装好青龙面板,确保你的机器能够访问bing和你的存储桶
 2. 进入青龙面板-脚本管理,点击右上角加号,新建名为bing.js的脚本并复制[Bing.js](https://github.com/Steve5wutongyu6/Bing.js/blob/main/bing.js)脚本内容到输入框
 3. 进入青龙面板-定时任务-新建任务,输入任务名称.命令为task bing.js(注意根据你保存的路径加以变动),定时规则请参考crontab进行设置,点击确定
-4. 进入青龙面板-依赖管理,安装如下依赖`ali-oss``moment``axios`
+4. 进入青龙面板-依赖管理,安装如下依赖`ali-oss` `moment` `axios`
 5. 进入青龙面板-环境变量按照下表
 
 
