@@ -1,32 +1,120 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Bing Wallpapers</title>
+  <!--文件编码UTF-8-->
+  <meta charset="UTF-8">
+  <title>Bing画廊</title>
+  <style>
+    body {
+      background-image: url("/web/DailyWallpaper.html");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #000000;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+
+    footer a {
+      color: white;
+    }
+
+    .title {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #000000;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .item {
+      width: 30%;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
 </head>
+
 <body>
-  <div id="wallpaperContainer"></div>
+  <div class="title">
+    <h1>Bing画廊</h1>
+  </div>
+  <div class="container"></div>
+  <footer>
+    <a>Bing.js</a>
+  </footer>
+  <script>
+    const container = document.querySelector('.container');
+
+    // 将日期格式化为YYYYMMDD
+    function formatDate(date) {
+      var year = date.getFullYear().toString();
+      var month = (date.getMonth() + 1).toString().padStart(2, '0');
+      var day = date.getDate().toString().padStart(2, '0');
+      return year + month + day;
+    }
+
+    // 生成链接
+    function generateLink(date) {
+      return 'https://example.com/?date=' + formatDate(date);
+    }
+
+    // 获取当前日期
+    const currentDate = new Date();
+
+    // 生成链接数组
+    const images = [];
+    let currentDateObj = new Date('2021-07-01'); // 设置开始日期
+    while (currentDateObj <= currentDate) {
+      images.push(generateLink(currentDateObj));
+      currentDateObj.setDate(currentDateObj.getDate() + 1);
+    }
+
+    // 创建图片元素并添加到画廊中
+    images.forEach(image => {
+      const item = document.createElement('div');
+      item.classList.add('item');
+      const img = document.createElement('img');
+      img.src = image;
+      item.appendChild(img);
+      container.appendChild(item);
+    });
+  </script>
 </body>
-<script type="text/javascript" src="js/bingwallpaper.js"></script>
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-  }
 
-  #wallpaperContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
-  }
-
-  #wallpaperContainer img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-</style>
 </html>
